@@ -1,98 +1,90 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Suresh's Website</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suresh Website</title>
 
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  scroll-behavior:smooth;
-}
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f2f7ff;
+      color: #222;
+      text-align: center;
+    }
 
-body{
-  font-family:Arial,sans-serif;
-  background:#0f172a;
-  color:white;
-  line-height:1.6;
-}
+    header {
+      background: #1769ff;
+      color: white;
+      padding: 60px 20px;
+    }
 
-header{
-  min-height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  padding:30px;
-  background:linear-gradient(135deg,#0f172a,#1e3a8a,#312e81);
-}
+    h1 {
+      font-size: 42px;
+      margin: 0 0 15px;
+    }
 
-.hero{
-  max-width:700px;
-}
+    p {
+      font-size: 18px;
+    }
 
-.hero h1{
-  font-size:48px;
-  margin-bottom:15px;
-}
+    .button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
+      background: white;
+      color: #1769ff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+    }
 
-.hero h1 span{
-  color:#60a5fa;
-}
+    section {
+      padding: 40px 20px;
+    }
 
-.hero p{
-  font-size:20px;
-  color:#cbd5e1;
-  margin-bottom:30px;
-}
+    .card {
+      max-width: 500px;
+      margin: 20px auto;
+      padding: 25px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
 
-.btn{
-  display:inline-block;
-  padding:14px 25px;
-  margin:7px;
-  border-radius:30px;
-  text-decoration:none;
-  color:white;
-  background:#2563eb;
-  transition:.3s;
-}
+    footer {
+      background: #111;
+      color: white;
+      padding: 20px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
 
-.btn:hover{
-  transform:scale(1.05);
-  background:#3b82f6;
-}
+<body>
 
-section{
-  padding:70px 20px;
-  text-align:center;
-}
+  <header>
+    <h1>Welcome to Suresh Website 👋</h1>
+    <p>My Personal Website</p>
+    <a class="button" href="#about">Explore</a>
+  </header>
 
-section h2{
-  font-size:35px;
-  margin-bottom:25px;
-}
+  <section id="about">
+    <div class="card">
+      <h2>About Me</h2>
+      <p>Hello! This is my personal website. 🚀</p>
+    </div>
 
-.about{
-  max-width:800px;
-  margin:auto;
-  color:#cbd5e1;
-  font-size:18px;
-}
+    <div class="card">
+      <h2>My Projects</h2>
+      <p>My projects and ideas will be displayed here.</p>
+    </div>
+  </section>
 
-.cards{
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:20px;
-  max-width:1000px;
-  margin:auto;
-}
+  <footer>
+    <p>© 2026 Suresh Website</p>
+  </footer>
 
-.card{
-  width:280px;
-  padding:30px;
-  border-radius:20px;
-  background:#1e293b;
+</body>
+</html>
