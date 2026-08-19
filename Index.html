@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MR. Sureshpal | Portfolio</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    color:#111827;
+    background:#fff;
+}
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:#061329;
+    padding:16px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    color:white;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#1683ff;
+}
+
+nav ul{
+    display:flex;
+    gap:28px;
+    list-style:none;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-size:14px;
+}
+
+nav a:hover{
+    color:#1683ff;
+}
+
+.btn{
+    display:inline-block;
+    padding:12px 22px;
+    background:#1683ff;
+    color:white;
+    border-radius:7px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.hero{
+    min-height:580px;
+    background:linear-gradient(120deg,#020817,#0b2b5c);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:70px 9%;
+    gap:50px;
+}
+
+.hero-text{
+    max-width:600px;
+}
+
+.small{
+    color:#1683ff;
+    font-weight:bold;
+    margin-bottom:12px;
+}
+
+.hero h1{
+    font-size:52px;
+    margin-bottom:12px;
+}
+
+.hero h3{
+    font-size:20px;
+    margin-bottom:20px;
+}
+
+.hero h3 span{
+    color:#1683ff;
+}
+
+.hero p{
+    line-height:1.8;
+    color:#d7e0ee;
+    margin-bottom:25px;
+}
+
+.hero-img{
+    width:280px;
+    height:280px;
+    border-radius:50%;
+    border:7px solid #1683ff;
+    padding:5px;
+    box-shadow:0 0 30px #1683ff;
+    object-fit:cover;
+}
+
+section{
+    padding:80px 8%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title p{
+    color:#1683ff;
+    font-weight:bold;
+    margin-bottom:8px;
+}
+
+.section-title h2{
+    font-size:32px;
+}
+
+.line{
+    width:35px;
+    height:4px;
+    background:#1683ff;
+    margin:12px auto;
+    border-radius:5px;
+}
+
+.about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+}
+
+.about-text{
+    line-height:1.9;
+    color:#4b5563;
+}
+
+.info-box{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    box-shadow:0 5px 25px #00000012;
+    border-radius:12px;
+    overflow:hidden;
+}
+
+.info{
+    padding:25px;
+    border:1px solid #eee;
+}
+
+.info strong{
+    display:block;
+    margin-bottom:6px;
+}
+
+.info small{
+    color:#777;
+}
+
+.skills{
+    background:#f4f8ff;
+}
+
+.skill-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:18px;
+}
+
+.skill{
+    background:white;
+    padding:25px 15px;
+    border-radius:12px;
+    text-align:center;
+    box-shadow:0 4px 15px #00000010;
+}
+
+.skill-icon{
+    font-size:30px;
+    margin-bottom:12px;
+}
+
+.bar{
+    height:7px;
+    background:#ddd;
+    border-radius:10px;
+    margin-top:15px;
+    overflow:hidden;
+}
+
+.bar span{
+    display:block;
+    height:100%;
+    background:#1683ff;
+}
+
+.projects{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.project{
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 5px 20px #00000012;
+    transition:.3s;
+}
+
+.project:hover{
+    transform:translateY(-7px);
+}
+
+.project-icon{
+    font-size:40px;
+    margin-bottom:15px;
+}
+
+.project h3{
+    margin-bottom:12px;
+}
+
+.project p{
+    color:#666;
+    line-height:1.7;
+}
+
+.contact{
+    background:#eef6ff;
+    text-align:center;
+}
+
+.contact p{
+    color:#555;
+    margin:15px auto 25px;
+    max-width:600px;
+    line-height:1.7;
+}
+
+footer{
+    background:#020817;
+    color:white;
+    padding:25px 8%;
+    display:flex;
+    justify-content:space-between;
+}
+
+@media(max-width:800px){
+
+    nav ul{
+        display:none;
+    }
+
+    .hero{
+        flex-direction:column-reverse;
+        text-align:center;
+        padding:60px 6%;
+    }
+
+    .hero h1{
+        font-size:38px;
+    }
+
+    .hero-img{
+        width:220px;
+        height:220px;
+    }
+
+    .about{
+        grid-template-columns:1fr;
+    }
+
+    .skill-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .projects{
+        grid-template-columns:1fr;
+    }
+
+    footer{
+        flex-direction:column;
+        gap:10px;
+        text-align:center;
+    }
+}
+
+@media(max-width:450px){
+    .skill-grid{
+        grid-template-columns:1fr;
+    }
+
+    .info-box{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">MR.<span>Sureshpal.</span></div>
+
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <a href="#contact" class="btn">Contact Me</a>
+</nav>
+
+
+<section class="hero" id="home">
+
+    <div class="hero-text">
+
+        <div class="small">Hello, I'm</div>
+
+        <h1>MR. Sureshpal</h1>
+
+        <h3>
+            <span>Software Engineer</span> |
+            Student | Creator
+        </h3>
+
+        <p>
+            I am a Class 12 student from Charkhari, Mahoba,
+            Uttar Pradesh, passionate about technology,
+            programming and creative digital work.
+            My goal is to become a Software Engineer
+            and build useful technology.
+        </p>
+
+        <a href="#projects" class="btn">View My Projects</a>
+
+    </div>
+
+    <img src="profile.jpg" class="hero-img" alt="Sureshpal">
+
+</section>
+
+
+<section id="about">
+
+    <div class="section-title">
+        <p>ABOUT ME</p>
+        <h2>Let me introduce myself</h2>
+        <div class="line"></div>
+    </div>
+
+    <div class="about">
+
+        <div class="about-text">
+
+            <p>
+                I'm Sureshpal, a Class 12 student who enjoys
+                learning programming, creating digital projects
+                and exploring new technology.
+            </p>
+
+            <br>
+
+            <p>
+                My current skills include Python, HTML,
+                C/C++, video editing and thumbnail design.
+                I am continuously learning and improving
+                my technical and creative skills.
+            </p>
+
+            <br>
+
+            <p>
+                My goal is to become a Software Engineer
+                and build useful, reliable and creative technology.
+            </p>
+
+        </div>
+
+        <div class="info-box">
+
+            <div class="info">
+                <strong>17</strong>
+                <small>Age</small>
+            </div>
+
+            <div class="info">
+                <strong>Class 12</strong>
+                <small>Education</small>
+            </div>
+
+            <div class="info">
+                <strong>Charkhari, Mahoba</strong>
+                <small>Uttar Pradesh</small>
+            </div>
+
+            <div class="info">
+                <strong>Software Engineer</strong>
+                <small>Goal</small>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="skills" id="skills">
+
+    <div class="section-title">
+        <p>SKILLS</p>
+        <h2>My Skills</h2>
+        <div class="line"></div>
+    </div>
+
+    <div class="skill-grid">
+
+        <div class="skill">
+            <div class="skill-icon">🐍</div>
+            <h3>Python</h3>
+            <div class="bar"><span style="width:85%"></span></div>
+        </div>
+
+        <div class="skill">
+            <div class="skill-icon">🌐</div>
+            <h3>HTML</h3>
+            <div class="bar"><span style="width:90%"></span></div>
+        </div>
+
+        <div class="skill">
+            <div class="skill-icon">💻</div>
+            <h3>C / C++</h3>
+            <div class="bar"><span style="width:75%"></span></div>
+        </div>
+
+        <div class="skill">
+            <div class="skill-icon">🎬</div>
+            <h3>Video Editing</h3>
+            <div class="bar"><span style="width:80%"></span></div>
+        </div>
+
+        <div class="skill">
+            <div class="skill-icon">🎨</div>
+            <h3>Thumbnail Design</h3>
+            <div class="bar"><span style="width:90%"></span></div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section id="projects">
+
+    <div class="section-title">
+        <p>PROJECTS</p>
+        <h2>My Projects</h2>
+        <div class="line"></div>
+    </div>
+
+    <div class="projects">
+
+        <div class="project">
+            <div class="project-icon">🎨</div>
+            <h3>Thumbnail Designer</h3>
+            <p>
+                Creative thumbnail designs focused on
+                attractive layouts, clear text and engaging
+                visuals.
+            </p>
+        </div>
+
+        <div class="project">
+            <div class="project-icon">🐍</div>
+            <h3>Python Projects</h3>
+            <p>
+                Programming projects created while learning
+                Python, problem solving and practical coding.
+            </p>
+        </div>
+
+        <div class="project">
+            <div class="project-icon">🎬</div>
+            <h3>Video Editing</h3>
+            <p>
+                Creative video editing projects with a focus
+                on clean and engaging digital content.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="contact" id="contact">
+
+    <div class="section-title">
+        <p>CONTACT</p>
+        <h2>Get In Touch</h2>
+        <div class="line"></div>
+    </div>
+
+    <p>
+        Have a project in mind or want to connect?
+        Feel free to contact me.
+    </p>
+
+    <a href="mailto:Sureshpal2203" class="btn">
+        Contact Me ✉
+    </a>
+
+</section>
+
+
+<footer>
+
+    <div>
+        <strong>MR. Sureshpal.</strong>
+        <br>
+        © 2026 Sureshpal. All rights reserved.
+    </div>
+
+    <div>
+        Software Engineer | Student | Creator
+    </div>
+
+</footer>
+
+</body>
+</html>
