@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suresh's Website</title>
+
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f3f6ff;
+  color:#222;
+  transition:.3s;
+}
+body.dark{
+  background:#121826;
+  color:#eee;
+}
+header{
+  min-height:100vh;
+  padding:70px 20px;
+  text-align:center;
+  color:white;
+  background:linear-gradient(135deg,#173b91,#2868df);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+header h1{font-size:48px;margin:10px 0}
+header p{font-size:22px;max-width:650px}
+button{
+  border:0;
+  border-radius:12px;
+  padding:12px 20px;
+  font-size:17px;
+  cursor:pointer;
+}
+.hero-btn{background:white;color:#2563eb;font-weight:bold}
+.mode-btn{
+  position:fixed;right:15px;top:15px;z-index:10;
+  background:#fff;color:#222;box-shadow:0 4px 15px #0003;
+}
+section{padding:60px 20px;max-width:900px;margin:auto}
+h2{text-align:center;color:#2868df;font-size:38px}
+.dark h2{color:#6fa0ff}
+.card{
+  background:white;
+  border-radius:22px;
+  padding:28px;
+  margin:22px 0;
+  box-shadow:0 8px 28px #0002;
+  text-align:center;
+  transition:.3s;
+}
+.dark .card{background:#1e293b;color:#eee}
+.skills{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:20px;
+}
+.skill{font-size:20px}
+input{
+  width:100%;
+  max-width:500px;
+  padding:13px;
+  border:2px solid #bbb;
+  border-radius:10px;
+  font-size:17px;
+  margin:6px 0;
+}
+.primary{background:#2868df;color:white}
+.weather-box{
+  margin-top:20px;
+  padding:25px;
+  border-radius:20px;
+  background:linear-gradient(135deg,#38bdf8,#2563eb);
+  color:white;
+  box-shadow:0 8px 25px #0003;
+}
+.weather-box h3{font-size:26px;margin:5px}
+.weather-temp{font-size:48px;font-weight:bold;margin:8px}
+.weather-info{
+  display:flex;justify-content:center;gap:10px;flex-wrap:wrap
+}
+.weather-item{
+  background:#ffffff25;padding:12px;border-radius:12px;min-width:120px
+}
+#todoList{padding:0;list-style:none}
+#todoList li{
+  background:#eef3ff;margin:8px 0;padding:12px;border-radius:10px;
+  display:flex;justify-content:space-between;align-items:center
+}
+.dark #todoList li{background:#334155}
+.delete{background:#ef4444;color:white;padding:7px 10px;font-size:14px}
+.calculator{
+  max-width:330px;margin:auto
+}
+#calcDisplay{
+  width:100%;font-size:25px;text-align:right;
+  padding:15px;border-radius:10px;border:2px solid #aaa
+}
+.calc-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:8px
+}
+.calc-grid button{background:#e5e7eb}
+.dark .calc-grid button{background:#475569;color:white}
+footer{
+  text-align:center;padding:30px;background:#173b91;color:white
+}
+</style>
+</head>
+
+<body>
+
+<button class="mode-btn" onclick="toggleMode()">🌙 Dark</button>
+
+<header>
+  <h1>Hello Bhai! 👋</h1>
+  <p>Welcome to my first professional website.</p>
+  <button class="hero-btn" onclick="document.getElementById('about').scrollIntoView()">Explore More</button>
+</header>
+
+<section id="about">
+  <h2>About Me</h2>
+  <div class="card">
+    <p style="font-size:22px">
+      Hello! मेरा नाम <b>Suresh</b> है। मुझे technology और
+      web development सीखना पसंद है।
+    </p>
+  </div>
+</section>
+
+<section>
+  <h2>My Skills 💻</h2>
+  <div class="skills">
+    <div class="card skill"><b>HTML ⭐⭐⭐⭐⭐</b><br>Website का structure बनाना</div>
+    <div class="card skill"><b>CSS ⭐⭐⭐⭐</b><br>Website को सुंदर बनाना</div>
+    <div class="card skill"><b>JavaScript ⭐⭐⭐</b><br>Website को interactive बनाना</div>
+  </div>
+</section>
+
+<section>
+  <h2>🌤️ Real Weather App</h2>
+  <div class="card">
+    <input id="city" type="text" placeholder="City का नाम">
+    <br>
+    <button class="primary" onclick="showWeather()">Check Weather</button>
+
+    <div class="weather-box">
+      <h3>🌤️ Weather Result</h3>
+      <div id="weatherResult">City का weather यहाँ दिखाई देगा</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>My To-Do List 📝</h2>
+  <div class="card">
+    <input id="todoInput" type="text" placeholder="कोई task लिखो">
+    <button class="primary" onclick="addTodo()">Add Task</button>
+    <ul id="todoList"></ul>
+  </div>
+</section>
+
+<section>
+  <h2>My Calculator 🧮</h2>
+  <div class="card calculator">
+    <input id="calcDisplay" readonly>
+    <div class="calc-grid">
+      <button onclick="clearCalc()">AC</button>
+      <button onclick="addCalc('/')">÷</button>
+      <button onclick="addCalc('*')">×</button>
+      <button onclick="addCalc('-')">−</button>
+      <button onclick="addCalc('7')">7</button>
+      <button onclick="addCalc('8')">8</button>
+      <button onclick="addCalc('9')">9</button>
+      <button onclick="addCalc('+')">+</button>
+      <button onclick="addCalc('4')">4</button>
+      <button onclick="addCalc('5')">5</button>
+      <button onclick="addCalc('6')">6</button>
+      <button onclick="calculate()">=</button>
+      <button onclick="addCalc('1')">1</button>
+      <button onclick="addCalc('2')">2</button>
+      <button onclick="addCalc('3')">3</button>
+      <button onclick="addCalc('0')">0</button>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Contact Me 📩</h2>
+  <div class="card">
+    <p>मुझसे संपर्क करने के लिए नीचे email button दबाएँ।</p>
+    <a href="mailto:your-email@example.com">
+      <button class="primary">📧 Email Me</button>
+    </a>
+  </div>
+</section>
+
+<footer>
+  © 2026 Suresh | My Website
+</footer>
+
+<script>
+function toggleMode(){
+  document.body.classList.toggle("dark");
+  const btn=document.querySelector(".mode-btn");
+  btn.textContent=document.body.classList.contains("dark") ? "☀️ Light" : "🌙 Dark";
+}
+
+async function showWeather(){
+  const city=document.getElementById("city").value.trim();
+  const result=document.getElementById("weatherResult");
+
+  if(city===""){
+    alert("पहले City का नाम लिखो!");
+    return;
+  }
+
+  result.innerHTML="Loading... ⏳";
+
+  try{
+    const locationResponse=await fetch(
+      "https://geocoding-api.open-meteo.com/v1/search?name="+
+      encodeURIComponent(city)+"&count=1&language=en&format=json"
+    );
+
+    const locationData=await locationResponse.json();
+
+    if(!locationData.results || locationData.results.length===0){
+      result.innerHTML="City नहीं मिली ❌";
+      return;
+    }
+
+    const location=locationData.results[0];
+
+    const weatherResponse=await fetch(
+      "https://api.open-meteo.com/v1/forecast?latitude="+
+      location.latitude+
+      "&longitude="+location.longitude+
+      "&current=temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code"
+    );
+
+    const weather=await weatherResponse.json();
+    const current=weather.current;
+    const code=current.weather_code;
+
+    let icon="🌤️", condition="Weather";
+
+    if(code===0){icon="☀️";condition="Clear Sky";}
+    else if(code<=3){icon="☁️";condition="Cloudy";}
+    else if(code>=51 && code<=67){icon="🌧️";condition="Rain";}
+    else if(code>=80 && code<=82){icon="🌦️";condition="Rain Showers";}
+    else if(code>=95){icon="⛈️";condition="Thunderstorm";}
+
+    result.innerHTML=
+      "<div style='font-size:55px'>"+icon+"</div>"+
+      "<h3>"+location.name+"</h3>"+
+      "<div class='weather-temp'>"+current.temperature_2m+"°C</div>"+
+      "<p>"+condition+"</p>"+
+      "<div class='weather-info'>"+
+        "<div class='weather-item'>💧 Humidity<br><b>"+current.relative_humidity_2m+"%</b></div>"+
+        "<div class='weather-item'>💨 Wind<br><b>"+current.wind_speed_10m+" km/h</b></div>"+
+      "</div>";
+
+  }catch(error){
+    result.innerHTML="Weather data नहीं मिल पाया ❌";
+  }
+}
+
+function addTodo(){
+  const input=document.getElementById("todoInput");
+  const text=input.value.trim();
+  if(text==="")return;
+
+  const li=document.createElement("li");
+  li.innerHTML="<span>"+escapeHtml(text)+"</span>";
+
+  const btn=document.createElement("button");
+  btn.textContent="Delete";
+  btn.className="delete";
+  btn.onclick=()=>li.remove();
+
+  li.appendChild(btn);
+  document.getElementById("todoList").appendChild(li);
+  input.value="";
+}
+
+function escapeHtml(text){
+  const div=document.createElement("div");
+  div.textContent=text;
+  return div.innerHTML;
+}
+
+function addCalc(value){
+  document.getElementById("calcDisplay").value+=value;
+}
+
+function clearCalc(){
+  document.getElementById("calcDisplay").value="";
+}
+
+function calculate(){
+  const display=document.getElementById("calcDisplay");
+  try{
+    if(!/^[0-9+\-*/.() ]+$/.test(display.value)) throw Error();
+    display.value=Function('"use strict";return ('+display.value+')')();
+  }catch(e){
+    display.value="Error";
+  }
+}
+</script>
+
+</body>
+</html>
